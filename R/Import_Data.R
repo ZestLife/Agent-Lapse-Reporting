@@ -40,3 +40,7 @@ All_Data$BDATE <- bdate
 
 rm(yy,mm,dd,bdate,Data_Folder,Data_Folders,common_col,file,file_list,file_location,Latest_Data_Folder,temp.df)
 
+
+source(paste(Path, "/R/OpenDB.R", sep = ""))
+
+Active_Agents_Data <- dbReadTable(my_new_db, "agents")

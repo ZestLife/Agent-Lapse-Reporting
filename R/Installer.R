@@ -4,6 +4,8 @@ require(openxlsx)
 require(excel.link)
 require(lubridate)
 require(stringr)
+require(RMySQL)
+require(XLConnect)
 
 
 

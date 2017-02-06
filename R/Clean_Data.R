@@ -48,6 +48,11 @@ string <- All_Data$AFFINITYGROUP[str_sub(All_Data$AFFINITYGROUP, start = -1) == 
 string <- substr(string, 1, nchar(string) - 1)
 All_Data$AFFINITYGROUP[str_sub(All_Data$AFFINITYGROUP, start = -1) == " "] <- string
 
+# clean commencement date
+All_Data$COMMENCEMENTDATEOFPOLICY[day(All_Data$COMMENCEMENTDATEOFPOLICY) != 1] = as.Date(paste(year(All_Data$COMMENCEMENTDATEOFPOLICY[day(All_Data$COMMENCEMENTDATEOFPOLICY) != 1]),
+                                                                                         month(All_Data$COMMENCEMENTDATEOFPOLICY[day(All_Data$COMMENCEMENTDATEOFPOLICY) != 1]),
+                                                                                         "01", sep = "-"))
+
 # New End Date
 All_Data$NEW_END_DATE <- All_Data$STATUSEFFECTIVEENDDATE
 All_Data$NEW_END_DATE[All_Data$STATUS == "ACT"] <- as.Date(today(tzone = ""))
